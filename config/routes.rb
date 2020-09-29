@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
+  namespace :api, :defaults => {:format => :json} do
+    get "/contacts", to: "contacts#index"
+    post "/contacts", to: "contacts#create"
+    get "/contacts/:id", to: "contacts#show"
+    put "/contacts/:id", to: "contacts#update"
+    delete "/contacts/:id", to: "contacts#destroy"
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
